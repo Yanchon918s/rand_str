@@ -25,5 +25,5 @@ function generate() {
     let file = new Blob([text], { type: 'text/plain' });
     downloadLink.href = URL.createObjectURL(file);
     downloadLink.download = 'strings.txt';
-    downloadLink.style.display = 'block';
+    downloadLink.style.display = 'inline';  // ボタンを表示
 }

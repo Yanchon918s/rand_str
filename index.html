@@ -3,6 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <title>ランダム文字列生成器</title>
+    <style>
+        /* スピンボタンを無効にする */
+        input[type="number"]::-webkit-inner-spin-button,
+        input[type="number"]::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+    </style>
     <script src="script.js"></script>
 </head>
 <body>
@@ -14,7 +22,7 @@
 <input type="number" id="quantity" name="quantity" min="1">
 <br>
 <button onclick="generate()">生成</button>
+<a id="downloadLink" style="display: none;" download>TXTで出力</a>
 <p id="output"></p>
-<a id="downloadLink" style="display: none;" download>TXTダウンロード</a>
 </body>
 </html>
