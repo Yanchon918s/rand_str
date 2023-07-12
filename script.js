@@ -3,6 +3,13 @@ function generate() {
     let quantity = parseInt(document.getElementById('quantity').value);
     let output = document.getElementById('output');
     let downloadLink = document.getElementById('downloadLink');
+
+    let maxCombinations = Math.pow(36, length);
+    if (quantity > maxCombinations) {
+        output.innerText = `Error: The quantity requested (${quantity}) exceeds the number of possible combinations (${maxCombinations}).`;
+        return;
+    }
+
     let strings = new Set();
 
     while (strings.size < quantity) {
