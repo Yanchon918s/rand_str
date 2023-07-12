@@ -10,6 +10,10 @@
             -webkit-appearance: none;
             margin: 0;
         }
+        /* プレフィックス入力フィールドの初期表示を無効にする */
+        #prefixContainer {
+            display: none;
+        }
     </style>
     <script src="script.js"></script>
 </head>
@@ -20,6 +24,13 @@
 <br>
 <label for="quantity">数量:</label>
 <input type="number" id="quantity" name="quantity" min="1">
+<br>
+<label for="usePrefix">プレフィックスを使用</label>
+<input type="checkbox" id="usePrefix" name="usePrefix" onchange="togglePrefix()">
+<div id="prefixContainer">
+    <label for="prefix">プレフィックス:</label>
+    <input type="text" id="prefix" name="prefix">
+</div>
 <br>
 <button onclick="generate()">生成</button>
 <a id="downloadLink" style="display: none;" download>TXTで出力</a>
