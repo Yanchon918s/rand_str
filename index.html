@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Random String Generator</title>
+    <script>
+        function generate() {
+            let length = parseInt(document.getElementById('length').value);
+            let quantity = parseInt(document.getElementById('quantity').value);
+            let output = document.getElementById('output');
+            let downloadLink = document.getElementById('downloadLink');
+            let strings = new Set();
+
+            while (strings.size < quantity) {
+                let randomString = Math.random().toString(36).substring(2, 2 + length);
+                if (!strings.has(randomString)) {
+                    strings.add(randomString);
+                }
+            }
+
+            let text = Array.from(strings).join('\n');
+            output.innerText = text;
+
+            let file = new Blob([text], { type: 'text/plain' });
+            downloadLink.href = URL.createObjectURL(file);
+            downloadLink.download = 'strings.txt';
+            downloadLink.style.display = 'block';
+        }
+    </script>
+</head>
+<body>
+    <h1>Random String Generator</h1>
+    <label for="length">Length:</label>
+    <input type="number" id="length" name="length" min="1" max="10">
+    <br>
+    <label for="quantity">Quantity:</label>
+    <input type="number" id="quantity" name="quantity" min="1">
+    <br>
+    <button onclick="generate()">Generate</button>
+    <p id="output"></p>
+    <a id="downloadLink" style="display: none;" download>Download TXT</a>
+</body>
+</html>
