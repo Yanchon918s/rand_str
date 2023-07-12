@@ -6,7 +6,7 @@ function generate() {
 
     let maxCombinations = Math.pow(36, length);
     if (quantity > maxCombinations) {
-        output.innerText = `Error: The quantity requested (${quantity}) exceeds the number of possible combinations (${maxCombinations}).`;
+        output.innerText = `エラー：要求された数量（${quantity}）は可能な組み合わせ（${maxCombinations}）を超えています。`;
         return;
     }
 
